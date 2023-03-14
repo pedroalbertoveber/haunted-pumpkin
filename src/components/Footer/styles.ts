@@ -4,6 +4,7 @@ export const FooterContainer = styled('footer', {
   width: '100%',
   padding: '2rem 0',
   borderTop: '1px solid $gray-900',
+  backgroundColor: '$dark-default',
 
   display: 'flex',
   alignItems: 'center',
