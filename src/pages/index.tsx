@@ -1,11 +1,7 @@
 import { Banner } from '@/components/Banner'
 import { LargeMovieCard } from '@/components/LargeMovieCard'
 import { api } from '@/services/api'
-import {
-  HomeContainer,
-  MainMoviesContainer,
-  ShadowEffect,
-} from '@/styles/pages/home'
+import { HomeContainer, MainMoviesContainer } from '@/styles/pages/home'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useKeenSlider } from 'keen-slider/react'
@@ -62,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 
   const movieList = await response.data.results
-  console.log(movieList)
+
   return {
     props: {
       movieList,
