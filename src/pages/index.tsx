@@ -34,7 +34,7 @@ export default function Home({ movieList }: HomeProps) {
       </Head>
       <HomeContainer>
         <Banner />
-        <SubtitleDefault />
+        <SubtitleDefault subtitle="The following is a small part of the movies you'll find here:" />
         <MainMoviesContainer>
           <div className="shadowLeft"></div>
           <div className="movies keen-slider" ref={sliderRef}>

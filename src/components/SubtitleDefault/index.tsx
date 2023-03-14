@@ -1,9 +1,13 @@
 import { SubtitleContainer } from './styles'
 
-export function SubtitleDefault() {
+interface Props {
+  subtitle: string
+}
+
+export function SubtitleDefault({ subtitle }: Props) {
   return (
     <SubtitleContainer>
-      <h2>The following is a small part of the movies you{"'"}ll find here:</h2>
+      <h2>{subtitle}</h2>
     </SubtitleContainer>
   )
 }
