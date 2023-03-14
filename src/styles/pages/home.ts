@@ -7,3 +7,7 @@ export const HomeContainer = styled('main', {
   minHeight: 'calc(100vh - 6rem)',
   padding: '3rem 1rem',
 })
+
+export const MainMoviesContainer = styled('div', {
+  display: 'flex',
+})
