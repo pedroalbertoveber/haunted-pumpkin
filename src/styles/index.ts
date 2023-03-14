@@ -15,7 +15,8 @@ export const {
       black: '#000000',
       white: '#FFFFFF',
 
-      'dark-default': '#1A1A1A',
+      'dark-default': '#181818',
+
       'red-500': '#F91C06',
       'red-600': '#D12312',
 
@@ -29,10 +30,11 @@ export const {
     fontSizes: {
       sm: '0.875rem',
       md: '1rem',
-      lg: '1.25rem',
+      lg: '1.125rem',
       xl: '1.5rem',
-      '2xl': '1.75rem',
-      '3xl': '2rem',
+      '2xl': '2rem',
+      '3xl': '3rem',
+      '4xl': '4rem',
       '5xl': '5rem',
     },
     fontWeights: {
