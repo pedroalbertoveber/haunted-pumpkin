@@ -4,6 +4,7 @@ export const BannerContainer = styled('section', {
   width: '100%',
   display: 'flex',
   marginTop: '6rem',
+  marginBottom: '5rem',
 })
 
 export const ImageContainer = styled('div', {

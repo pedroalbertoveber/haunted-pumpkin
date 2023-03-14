@@ -1,11 +1,16 @@
 import { Banner } from '@/components/Banner'
 import { LargeMovieCard } from '@/components/LargeMovieCard'
 import { api } from '@/services/api'
-import { HomeContainer, MainMoviesContainer } from '@/styles/pages/home'
+import {
+  HomeContainer,
+  MainMoviesContainer,
+  ShadowEffect,
+} from '@/styles/pages/home'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import { SubtitleDefault } from '@/components/SubtitleDefault'
 
 interface HomeProps {
   movieList: {
@@ -33,10 +38,15 @@ export default function Home({ movieList }: HomeProps) {
       </Head>
       <HomeContainer>
         <Banner />
-        <MainMoviesContainer ref={sliderRef} className="keen-slider">
-          {movieList.map((movie) => {
-            return <LargeMovieCard key={movie.id} {...movie} />
-          })}
+        <SubtitleDefault />
+        <MainMoviesContainer>
+          <div className="shadowLeft"></div>
+          <div className="movies keen-slider" ref={sliderRef}>
+            {movieList.map((movie) => {
+              return <LargeMovieCard key={movie.id} {...movie} />
+            })}
+          </div>
+          <div className="shadowRight"></div>
         </MainMoviesContainer>
       </HomeContainer>
     </>

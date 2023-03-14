@@ -10,4 +10,31 @@ export const HomeContainer = styled('main', {
 
 export const MainMoviesContainer = styled('div', {
   display: 'flex',
+  position: 'relative',
+
+  '.shadowLeft': {
+    width: 60,
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    top: 0,
+    zIndex: 1,
+
+    background: 'linear-gradient(to right, $dark-default 0%, transparent 100%)',
+  },
+
+  '.shadowRight': {
+    width: 60,
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    top: 0,
+    zIndex: 1,
+
+    background: 'linear-gradient(to left, $dark-default 0%, transparent 100%)',
+  },
+
+  '.movies': {
+    display: 'flex',
+  },
 })
