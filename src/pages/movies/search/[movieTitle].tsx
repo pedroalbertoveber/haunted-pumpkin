@@ -1,4 +1,5 @@
 import { SearchField } from '@/components/SearchField'
+import { SkeletonCard } from '@/components/SkeletonCard'
 import { SmallMovieCard } from '@/components/SmallMovieCard'
 import { SubtitleDefault } from '@/components/SubtitleDefault'
 import { api } from '@/services/api'
@@ -24,19 +25,20 @@ export default function SearchByMovieTitle({
 }: SearchByMovieProps) {
   const { isFallback, query } = useRouter()
 
-  if (isFallback) {
-    return <p>Loading...</p>
-  }
-
   return (
     <PageContainer>
-      <SubtitleDefault subtitle={`Search by title: ${query.movieTitle}`} />
+      <SubtitleDefault
+        subtitle={`Search by title: ${isFallback ? '...' : query.movieTitle}`}
+      />
       <SearchField />
-      <MoviesContainer>
-        {filteredMovies.map((movie) => (
-          <SmallMovieCard key={movie.id} {...movie} />
-        ))}
-      </MoviesContainer>
+      {isFallback && <SkeletonCard repeat={20} />}
+      {!isFallback && (
+        <MoviesContainer>
+          {filteredMovies.map((movie) => (
+            <SmallMovieCard key={movie.id} {...movie} />
+          ))}
+        </MoviesContainer>
+      )}
     </PageContainer>
   )
 }

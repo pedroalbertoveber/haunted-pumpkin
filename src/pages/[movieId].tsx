@@ -10,6 +10,8 @@ import {
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { SkeletonScreen } from '@/components/SkeletonScreen'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 interface MovieInfoProps {
   selectedMovie: {
@@ -35,40 +37,41 @@ export default function MovieInfo({ selectedMovie }: MovieInfoProps) {
 
   const { isFallback, push } = useRouter()
 
-  if (isFallback) {
-    return <p>Loading...</p>
-  }
-
   function goBackToAllMovies() {
     return push('/movies/1')
   }
 
   return (
     <MovieInfoContainer>
-      <SubtitleDefault subtitle={selectedMovie.title} />
-      <div className="info">
-        <Image
-          src={imagePath + selectedMovie.backdropPath}
-          width={600}
-          height={500}
-          alt={selectedMovie.title}
-        />
-        <MovieDetails>
-          <span className="voteAverage">{selectedMovie.voteAverage} / 10</span>
-          <span className="runtime">{selectedMovie.runtime} minutes</span>
-          <GenresContainer>
-            {selectedMovie.genres.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </GenresContainer>
-          <p>Overview: {selectedMovie.overview}</p>
-          <ProductionCompanies>
-            {selectedMovie.productionCompanies.map((company) => (
-              <li key={company.id}>&copy; {company.name}</li>
-            ))}
-          </ProductionCompanies>
-        </MovieDetails>
-      </div>
+      <SubtitleDefault subtitle={isFallback ? '...' : selectedMovie.title} />
+      {isFallback && <SkeletonScreen />}
+      {!isFallback && (
+        <div className="info">
+          <Image
+            src={imagePath + selectedMovie.backdropPath}
+            width={600}
+            height={500}
+            alt={selectedMovie.title}
+          />
+          <MovieDetails>
+            <span className="voteAverage">
+              {selectedMovie.voteAverage} / 10
+            </span>
+            <span className="runtime">{selectedMovie.runtime} minutes</span>
+            <GenresContainer>
+              {selectedMovie.genres.map((genre) => (
+                <li key={genre.id}>{genre.name}</li>
+              ))}
+            </GenresContainer>
+            <p>Overview: {selectedMovie.overview}</p>
+            <ProductionCompanies>
+              {selectedMovie.productionCompanies.map((company) => (
+                <li key={company.id}>&copy; {company.name}</li>
+              ))}
+            </ProductionCompanies>
+          </MovieDetails>
+        </div>
+      )}
       <div className="goBack" onClick={goBackToAllMovies}>
         <ImArrowLeft size={24} />
       </div>
