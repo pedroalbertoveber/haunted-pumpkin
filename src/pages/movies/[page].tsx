@@ -1,3 +1,4 @@
+import { SearchField } from '@/components/SearchField'
 import { SmallMovieCard } from '@/components/SmallMovieCard'
 import { SubtitleDefault } from '@/components/SubtitleDefault'
 import { api } from '@/services/api'
@@ -50,6 +51,7 @@ export default function Movies({ movieList }: MoviesProps) {
   return (
     <PageContainer>
       <SubtitleDefault subtitle="Best rated horror movies:" />
+      <SearchField />
       <MoviesContainer>
         {movieList.map((movie) => {
           return <SmallMovieCard key={movie.id} {...movie} />
