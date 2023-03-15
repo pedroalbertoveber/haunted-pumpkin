@@ -8,7 +8,7 @@ export const PageContainer = styled('div', {
 export const MoviesContainer = styled('section', {
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   gap: '1.5rem',
 })
 

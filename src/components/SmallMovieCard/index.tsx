@@ -20,7 +20,7 @@ export function SmallMovieCard({
   const imagePath = 'https://image.tmdb.org/t/p/original'
 
   return (
-    <Link href={'/' + id}>
+    <Link href={'/' + id} prefetch={false}>
       <SmallMovieContainer>
         <Image
           src={imagePath + posterPath}
