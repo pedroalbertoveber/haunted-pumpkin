@@ -1,4 +1,5 @@
 import { SearchField } from '@/components/SearchField'
+import { SkeletonCard } from '@/components/SkeletonCard'
 import { SmallMovieCard } from '@/components/SmallMovieCard'
 import { SubtitleDefault } from '@/components/SubtitleDefault'
 import { api } from '@/services/api'
@@ -41,10 +42,6 @@ export default function Movies({ movieList }: MoviesProps) {
     return push('/movies/' + previousPageNumber)
   }
 
-  if (isFallback) {
-    return <p>Loading...</p>
-  }
-
   const disabledPreviousPage = page === '1'
   const disabledNextPage = page === '20'
 
@@ -52,11 +49,15 @@ export default function Movies({ movieList }: MoviesProps) {
     <PageContainer>
       <SubtitleDefault subtitle="Best rated horror movies:" />
       <SearchField />
-      <MoviesContainer>
-        {movieList.map((movie) => {
-          return <SmallMovieCard key={movie.id} {...movie} />
-        })}
-      </MoviesContainer>
+      {isFallback && <SkeletonCard repeat={20} />}
+      {!isFallback && (
+        <MoviesContainer>
+          {movieList.map((movie) => {
+            return <SmallMovieCard key={movie.id} {...movie} />
+          })}
+        </MoviesContainer>
+      )}
+
       <Pagination>
         <button
           title="Previous page"
