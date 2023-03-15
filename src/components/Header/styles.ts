@@ -45,6 +45,14 @@ export const NavContainer = styled('nav', {
     alignItems: 'center',
     height: '6rem',
 
+    '[aria-current]:not([aria-current="false"])': {
+      fontWeight: 'bold',
+
+      span: {
+        color: '$gray-100',
+      },
+    },
+
     li: {
       height: '6rem',
 

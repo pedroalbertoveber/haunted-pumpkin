@@ -18,6 +18,10 @@ export const globalStyles = globalCss({
     fontWeight: '$regular',
   },
 
+  ul: {
+    listStyle: 'none',
+  },
+
   button: {
     cursor: 'pointer',
     border: 'none',

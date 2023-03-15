@@ -21,6 +21,7 @@ export const {
       'red-600': '#D12312',
 
       'gray-100': '#E0E0E6',
+      'gray-300': '#CACACE',
       'gray-500': '#B5B5B9',
       'gray-600': '#868690',
       'gray-700': '#676771',

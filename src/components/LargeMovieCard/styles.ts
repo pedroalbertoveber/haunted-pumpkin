@@ -2,7 +2,7 @@ import { styled } from '@stitches/react'
 
 export const LargeMovieContainer = styled('div', {
   position: 'relative',
-  cursor: 'pointer',
+  cursor: 'grab',
   overflow: 'hidden',
   width: 350,
 
@@ -12,6 +12,10 @@ export const LargeMovieContainer = styled('div', {
 
   img: {
     objectFit: 'cover',
+  },
+
+  '&:active': {
+    cursor: 'grabbing',
   },
 
   '&:hover > footer': {

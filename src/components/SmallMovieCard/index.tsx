@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { InfoContainer, SmallMovieContainer } from './styles'
 
 interface Props {
@@ -19,22 +20,24 @@ export function SmallMovieCard({
   const imagePath = 'https://image.tmdb.org/t/p/original'
 
   return (
-    <SmallMovieContainer>
-      <Image
-        src={imagePath + posterPath}
-        alt={title}
-        width={250}
-        height={370}
-      />
-      <InfoContainer>
-        <p>
-          Vote average: <strong>{voteAverage} / 10</strong>
-        </p>
-        <h4>{title}</h4>
-        <p>
-          Release date: <strong>{releaseDate.replaceAll('-', '/')}</strong>
-        </p>
-      </InfoContainer>
-    </SmallMovieContainer>
+    <Link href={'/' + id}>
+      <SmallMovieContainer>
+        <Image
+          src={imagePath + posterPath}
+          alt={title}
+          width={250}
+          height={370}
+        />
+        <InfoContainer>
+          <p>
+            Vote average: <strong>{voteAverage} / 10</strong>
+          </p>
+          <h4>{title}</h4>
+          <p>
+            Release date: <strong>{releaseDate.replaceAll('-', '/')}</strong>
+          </p>
+        </InfoContainer>
+      </SmallMovieContainer>
+    </Link>
   )
 }
