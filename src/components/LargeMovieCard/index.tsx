@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { LargeMovieContainer } from './styles'
+import { LargeMovieContainer, StarRating } from './styles'
 import 'keen-slider/keen-slider.min.css'
+import { Rating } from 'react-simple-star-rating'
 
 interface LargeMovieCardProps {
   id: number
@@ -26,7 +27,16 @@ export function LargeMovieCard({
         height={450}
       />
       <footer>
-        <span>{voteAverage} / 10</span>
+        <StarRating>
+          <Rating
+            initialValue={voteAverage / 2}
+            readonly={true}
+            allowFraction={true}
+            emptyColor={'#434347'}
+            size={20}
+          />
+          <span className="voteAverage">{voteAverage} / 10</span>
+        </StarRating>
         <h4>{title}</h4>
       </footer>
     </LargeMovieContainer>

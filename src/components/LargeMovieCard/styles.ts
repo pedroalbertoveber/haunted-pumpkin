@@ -37,14 +37,21 @@ export const LargeMovieContainer = styled('div', {
 
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
 
-    span: {
-      color: '$gray-500',
-      display: 'block',
-      marginBottom: '0.5rem',
-    },
-
     h4: {
       fontSize: '$xl',
     },
+  },
+})
+
+export const StarRating = styled('div', {
+  width: '100%',
+  display: 'flex',
+  gap: '1rem',
+  alignItems: 'center',
+
+  '.voteAverage': {
+    fontSize: '$sm',
+    color: '$gray-500',
+    marginBottom: 2,
   },
 })

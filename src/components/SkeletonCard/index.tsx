@@ -15,7 +15,7 @@ export function SkeletonCard({ repeat }: SkeletonRepeatProps) {
         .map((_, index) => {
           return (
             <SkeletonCardContainer key={index}>
-              <Skeleton height={320} />
+              <Skeleton height={288} />
               <div className="container">
                 <Skeleton height={18} />
                 <Skeleton height={14} />

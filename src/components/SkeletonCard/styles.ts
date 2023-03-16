@@ -10,7 +10,7 @@ export const SkeletonCardContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
 
-    padding: '1rem 0.5rem',
+    padding: '.5rem',
     gap: '0.5rem',
 
     width: '100%',

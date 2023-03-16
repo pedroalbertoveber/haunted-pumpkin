@@ -7,10 +7,7 @@ import z from 'zod'
 import { useRouter } from 'next/router'
 
 const SearchFieldValidation = z.object({
-  search: z
-    .string()
-    .min(1)
-    .max(25, 'Your search cannot be more than 25 characters'),
+  search: z.string().max(25, 'Your search cannot be more than 25 characters'),
 })
 
 export type SearchFieldType = z.infer<typeof SearchFieldValidation>
@@ -26,6 +23,9 @@ export function SearchField() {
   })
 
   function handleSearchMoviesByTitle(data: SearchFieldType) {
+    if (data.search === '') {
+      return push('/movies/1')
+    }
     return push(`/movies/search/${data.search.toLocaleLowerCase()}`)
   }
 
@@ -33,7 +33,6 @@ export function SearchField() {
     <SearchFieldContainer onSubmit={handleSubmit(handleSearchMoviesByTitle)}>
       <input
         type="text"
-        required
         id="searchField"
         placeholder="Search by movie title"
         {...register('search')}
