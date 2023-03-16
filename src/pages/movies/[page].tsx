@@ -1,3 +1,4 @@
+import { ShowingUpMotionContainer } from '@/components/FramerMotion/ShowingUpMotionContainer'
 import { SearchField } from '@/components/SearchField'
 import { SkeletonCard } from '@/components/SkeletonCard'
 import { SmallMovieCard } from '@/components/SmallMovieCard'
@@ -11,8 +12,6 @@ import {
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im'
-import { motion } from 'framer-motion'
-import { cardVariants } from '@/lib/framer-motion'
 
 interface MoviesProps {
   movieList: {
@@ -53,21 +52,13 @@ export default function Movies({ movieList }: MoviesProps) {
       <SearchField />
       {isFallback && <SkeletonCard repeat={20} />}
       {!isFallback && (
-        <motion.div
-          initial="offscreen"
-          animate="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
-        >
+        <ShowingUpMotionContainer>
           <MoviesContainer>
             {movieList.map((movie) => {
-              return (
-                <motion.div variants={cardVariants} key={movie.id}>
-                  <SmallMovieCard {...movie} />
-                </motion.div>
-              )
+              return <SmallMovieCard {...movie} key={movie.id} />
             })}
           </MoviesContainer>
-        </motion.div>
+        </ShowingUpMotionContainer>
       )}
 
       <Pagination>

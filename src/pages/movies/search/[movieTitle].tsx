@@ -6,8 +6,7 @@ import { api } from '@/services/api'
 import { MoviesContainer, PageContainer } from '@/styles/pages/movies'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
-import { cardVariants } from '@/lib/framer-motion'
+import { ShowingUpMotionContainer } from '@/components/FramerMotion/ShowingUpMotionContainer'
 
 interface MoviesType {
   id: number
@@ -35,19 +34,13 @@ export default function SearchByMovieTitle({
       <SearchField />
       {isFallback && <SkeletonCard repeat={20} />}
       {!isFallback && (
-        <motion.div
-          initial="offscreen"
-          animate="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
-        >
+        <ShowingUpMotionContainer>
           <MoviesContainer>
             {filteredMovies.map((movie) => (
-              <motion.div key={movie.id} variants={cardVariants}>
-                <SmallMovieCard {...movie} />
-              </motion.div>
+              <SmallMovieCard {...movie} key={movie.id} />
             ))}
           </MoviesContainer>
-        </motion.div>
+        </ShowingUpMotionContainer>
       )}
     </PageContainer>
   )
@@ -75,8 +68,6 @@ export const getStaticProps: GetStaticProps<
     (movie: MoviesType) =>
       movie.genre_ids.includes(Number(process.env.HORROR_ID!)),
   )
-
-  console.log(filteredMovies)
 
   return {
     props: {

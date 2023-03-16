@@ -7,8 +7,7 @@ import Head from 'next/head'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { SubtitleDefault } from '@/components/SubtitleDefault'
-import { motion } from 'framer-motion'
-import { cardVariantsMainMenu } from '@/lib/framer-motion'
+import { ShowingUpMotionContainer } from '@/components/FramerMotion/ShowingUpMotionContainer'
 
 interface HomeProps {
   movieList: {
@@ -37,25 +36,17 @@ export default function Home({ movieList }: HomeProps) {
       <HomeContainer>
         <Banner />
         <SubtitleDefault subtitle="The following is a small part of the movies you'll find here:" />
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
-        >
+        <ShowingUpMotionContainer>
           <MainMoviesContainer>
             <div className="shadowLeft"></div>
             <div className="movies keen-slider" ref={sliderRef}>
               {movieList.map((movie) => {
-                return (
-                  <motion.div key={movie.id} variants={cardVariantsMainMenu}>
-                    <LargeMovieCard {...movie} />
-                  </motion.div>
-                )
+                return <LargeMovieCard {...movie} key={movie.id} />
               })}
             </div>
             <div className="shadowRight"></div>
           </MainMoviesContainer>
-        </motion.div>
+        </ShowingUpMotionContainer>
       </HomeContainer>
     </>
   )
