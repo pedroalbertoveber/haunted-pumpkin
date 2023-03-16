@@ -46,4 +46,9 @@ export const {
       default: 'Montserrat',
     },
   },
+  media: {
+    bpLg: '(max-width: 1024px)',
+    bpMd: '(max-width: 768px)',
+    bpSm: '(max-width: 640px)',
+  },
 })

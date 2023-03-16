@@ -13,7 +13,7 @@ export function Footer() {
         </div>
         <TMDBContainer>
           <div className="imageContainer">
-            <Image alt="The Movie Database Logo" width={120} src={TMDB} />
+            <Image alt="The Movie Database Logo" width={300} src={TMDB} />
           </div>
           <div className="content">
             <p>

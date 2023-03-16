@@ -7,5 +7,10 @@ export const SubtitleContainer = styled('div', {
   h2: {
     fontSize: '$xl',
     color: '$gray-100',
+
+    '@bpMd': {
+      fontSize: '$lg',
+      lineHeight: 1.6,
+    },
   },
 })

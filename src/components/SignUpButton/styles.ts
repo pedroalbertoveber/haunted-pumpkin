@@ -15,4 +15,8 @@ export const ButtonContainer = styled('button', {
     backgroundColor: '$red-600',
     transition: 'background .2s',
   },
+
+  '@bpMd': {
+    fontSize: '$md',
+  },
 })

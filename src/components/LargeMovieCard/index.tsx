@@ -26,7 +26,7 @@ export function LargeMovieCard({
           width={350}
           alt={title}
           src={imagePath + posterPath}
-          height={450}
+          height={350}
         />
         <footer>
           <StarRating>

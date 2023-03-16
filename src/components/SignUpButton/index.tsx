@@ -5,7 +5,7 @@ export function SignUpButton() {
   return (
     <ButtonContainer>
       <FaGithub size={32} />
-      Sign Up for free using your Github account
+      Sign Up for free
     </ButtonContainer>
   )
 }
