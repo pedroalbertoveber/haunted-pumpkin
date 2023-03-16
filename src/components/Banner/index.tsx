@@ -11,8 +11,7 @@ export function Banner() {
           Welcome to <strong>Haunted Pumpkin</strong>
         </h1>
         <p>
-          Here you{"'"}ll find whatever horror movie <br /> or serie you want to
-          watch
+          Here you{"'"}ll find whatever horror movie <br /> you want to watch
         </p>
         <SignUpButton />
       </ContentContainer>

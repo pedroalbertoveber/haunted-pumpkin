@@ -32,8 +32,6 @@ export const SearchFieldContainer = styled('form', {
     border: 0,
     backgroundColor: 'inherit',
     color: '$gray-500',
-    borderLeft: '1px solid $gray-500',
-    paddingLeft: '1rem',
 
     display: 'flex',
     alignItems: 'center',
@@ -43,5 +41,13 @@ export const SearchFieldContainer = styled('form', {
       color: '$gray-300',
       transition: 'color 0.2s',
     },
+  },
+
+  'button:focus': {
+    outline: 0,
+    color: '$red-500',
+  },
+  'button:active': {
+    color: '$red-600',
   },
 })

@@ -7,6 +7,7 @@ import { MoviesContainer, PageContainer } from '@/styles/pages/movies'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { ShowingUpMotionContainer } from '@/components/FramerMotion/ShowingUpMotionContainer'
+import { NoResults } from '@/components/NoResults'
 
 interface MoviesType {
   id: number
@@ -26,6 +27,12 @@ export default function SearchByMovieTitle({
 }: SearchByMovieProps) {
   const { isFallback, query } = useRouter()
 
+  let noResults: boolean = false
+
+  if (!isFallback) {
+    filteredMovies.length === 0 && (noResults = true)
+  }
+
   return (
     <PageContainer>
       <SubtitleDefault
@@ -35,11 +42,15 @@ export default function SearchByMovieTitle({
       {isFallback && <SkeletonCard repeat={20} />}
       {!isFallback && (
         <ShowingUpMotionContainer>
-          <MoviesContainer>
-            {filteredMovies.map((movie) => (
-              <SmallMovieCard {...movie} key={movie.id} />
-            ))}
-          </MoviesContainer>
+          {noResults ? (
+            <NoResults />
+          ) : (
+            <MoviesContainer>
+              {filteredMovies.map((movie) => (
+                <SmallMovieCard {...movie} key={movie.id} />
+              ))}
+            </MoviesContainer>
+          )}
         </ShowingUpMotionContainer>
       )}
     </PageContainer>
