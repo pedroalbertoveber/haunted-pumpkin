@@ -6,7 +6,7 @@ export const HomeContainer = styled('main', {
   padding: '1rem 0 3rem 0',
 })
 
-export const MainMoviesContainer = styled('div', {
+export const MainMoviesContainer = styled('section', {
   display: 'flex',
   position: 'relative',
 

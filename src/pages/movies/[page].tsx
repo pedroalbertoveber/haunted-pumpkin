@@ -11,6 +11,8 @@ import {
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im'
+import { motion } from 'framer-motion'
+import { cardVariants } from '@/lib/framer-motion'
 
 interface MoviesProps {
   movieList: {
@@ -51,11 +53,21 @@ export default function Movies({ movieList }: MoviesProps) {
       <SearchField />
       {isFallback && <SkeletonCard repeat={20} />}
       {!isFallback && (
-        <MoviesContainer>
-          {movieList.map((movie) => {
-            return <SmallMovieCard key={movie.id} {...movie} />
-          })}
-        </MoviesContainer>
+        <motion.div
+          initial="offscreen"
+          animate="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          <MoviesContainer>
+            {movieList.map((movie) => {
+              return (
+                <motion.div variants={cardVariants} key={movie.id}>
+                  <SmallMovieCard {...movie} />
+                </motion.div>
+              )
+            })}
+          </MoviesContainer>
+        </motion.div>
       )}
 
       <Pagination>

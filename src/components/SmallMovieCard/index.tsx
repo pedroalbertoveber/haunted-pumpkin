@@ -22,7 +22,7 @@ export function SmallMovieCard({
 
   return (
     <Link href={'/' + id} prefetch={false}>
-      <SmallMovieContainer>
+      <SmallMovieContainer title={title}>
         <RatingContainer>
           <div className="container">
             <Rating
@@ -43,7 +43,6 @@ export function SmallMovieCard({
         />
         <InfoContainer>
           <h4>{title}</h4>
-
           <p>
             Release date: <strong>{releaseDate.replaceAll('-', '/')}</strong>
           </p>

@@ -6,6 +6,8 @@ import { api } from '@/services/api'
 import { MoviesContainer, PageContainer } from '@/styles/pages/movies'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+import { cardVariants } from '@/lib/framer-motion'
 
 interface MoviesType {
   id: number
@@ -33,11 +35,19 @@ export default function SearchByMovieTitle({
       <SearchField />
       {isFallback && <SkeletonCard repeat={20} />}
       {!isFallback && (
-        <MoviesContainer>
-          {filteredMovies.map((movie) => (
-            <SmallMovieCard key={movie.id} {...movie} />
-          ))}
-        </MoviesContainer>
+        <motion.div
+          initial="offscreen"
+          animate="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          <MoviesContainer>
+            {filteredMovies.map((movie) => (
+              <motion.div key={movie.id} variants={cardVariants}>
+                <SmallMovieCard {...movie} />
+              </motion.div>
+            ))}
+          </MoviesContainer>
+        </motion.div>
       )}
     </PageContainer>
   )

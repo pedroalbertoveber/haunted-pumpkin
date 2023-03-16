@@ -17,6 +17,7 @@
     "dotenv": "^16.0.3",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "framer-motion": "^10.3.4",
     "keen-slider": "^6.8.5",
     "next": "13.2.4",
     "react": "18.2.0",
