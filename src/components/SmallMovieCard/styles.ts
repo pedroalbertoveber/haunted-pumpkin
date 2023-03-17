@@ -7,7 +7,9 @@ export const SmallMovieContainer = styled('div', {
   position: 'relative',
   overflow: 'hidden',
 
-  width: 'calc(((1220px - 2rem) - 6.5rem) / 5)',
+  width: '100%',
+  maxWidth: 'calc(((1220px - 2rem) - 6.5rem) / 5)',
+  minWidth: 'calc(((1220px - 2rem) - 6.5rem) / 5)',
 
   img: {
     objectFit: 'cover',

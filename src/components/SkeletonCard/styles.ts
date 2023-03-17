@@ -6,6 +6,11 @@ export const SkeletonCardContainer = styled('div', {
   border: '1px solid $gray-700',
   borderRadius: 8,
 
+  '@bpSm': {
+    width: '100%',
+    maxWidth: 'none',
+  },
+
   '.container': {
     display: 'flex',
     flexDirection: 'column',

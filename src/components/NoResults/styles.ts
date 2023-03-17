@@ -15,6 +15,19 @@ export const NoResultsContainer = styled('div', {
     minWidth: '40%',
     height: '100%',
   },
+
+  '@bpMd': {
+    flexDirection: 'column-reverse',
+    marginTop: '2rem',
+
+    img: {
+      maxWidth: '90%',
+    },
+
+    h1: {
+      fontSize: '$xl',
+    },
+  },
 })
 
 export const LinkContainer = styled('div', {

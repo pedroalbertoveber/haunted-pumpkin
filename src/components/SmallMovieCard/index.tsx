@@ -40,8 +40,8 @@ export function SmallMovieCard({
           <Image
             src={imagePath + posterPath}
             alt={title}
-            width={250}
-            height={370}
+            width={350}
+            height={450}
           />
           <InfoContainer>
             <h4>{title}</h4>

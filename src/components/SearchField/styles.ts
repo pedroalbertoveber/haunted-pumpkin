@@ -5,6 +5,10 @@ export const SearchFieldContainer = styled('form', {
   width: '50%',
   padding: '.5rem 1rem',
 
+  '@bpSm': {
+    width: '100%',
+  },
+
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '$gray-900',

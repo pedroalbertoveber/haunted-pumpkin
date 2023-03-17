@@ -8,14 +8,23 @@ export const MovieInfoContainer = styled('section', {
     display: 'flex',
     alignItems: 'flex-start',
     gap: '1rem',
-
     backgroundColor: '$gray-900',
     borderRadius: '0 8px 8px 0',
+
+    '@bpMd': {
+      flexDirection: 'column',
+      alignItems: 'center',
+      borderRadius: '0 0 8px 8px',
+    },
 
     img: {
       width: '60%',
       heigth: '100%',
       objectFit: 'cover',
+
+      '@bpMd': {
+        width: '100%',
+      },
     },
   },
 
@@ -35,6 +44,10 @@ export const MovieInfoContainer = styled('section', {
 export const MovieDetails = styled('ul', {
   padding: '1rem',
   paddingLeft: '0',
+  '@bpMd': {
+    padding: '1rem',
+    paddingTop: 0,
+  },
 
   '.voteAverage': {
     fontSize: '$sm',

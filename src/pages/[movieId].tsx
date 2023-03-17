@@ -49,7 +49,7 @@ export default function MovieInfo({ selectedMovie }: MovieInfoProps) {
         <div className="info">
           <Image
             src={imagePath + selectedMovie.backdropPath}
-            width={600}
+            width={1000}
             height={500}
             alt={selectedMovie.title}
           />

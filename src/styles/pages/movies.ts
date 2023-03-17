@@ -7,9 +7,16 @@ export const PageContainer = styled('div', {
 
 export const MoviesContainer = styled('section', {
   display: 'flex',
-  flexWrap: 'wrap',
   justifyContent: 'flex-start',
+  width: '100%',
+  flexWrap: 'wrap',
   gap: '1.5rem',
+
+  '@bpSm': {
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+  },
 })
 
 export const Pagination = styled('div', {
